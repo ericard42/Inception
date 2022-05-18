@@ -1,4 +1,5 @@
 FROM alpine:3.14
+EXPOSE 9000
 
 RUN apk update && apk upgrade
 RUN apk add php7 php7-fpm php7-opcache
