@@ -15,6 +15,14 @@ services:
                   - inception_network
                 restart: always
 
+
+volumes:
+        wp-data:
+                driver: local
+                driver_opts:
+                        type: none
+                        device: 
+
 networks:
         inception_network:
                  driver: bridge
