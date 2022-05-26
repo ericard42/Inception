@@ -1,6 +1,8 @@
 version: "3.3"
 services:
         nginx:
+                depends_on:
+                        - php
                 build: ./requirements/nginx
                 image: inception_nginx
                 networks :
@@ -8,12 +10,17 @@ services:
                 ports:
                   - "443:443"
                 restart: always
+                volumes:
+                  - wp-data:/var/www/html
+
         php:
                 build: ./requirements/wordpress
                 image: inception_php
                 networks :
                   - inception_network
                 restart: always
+                volumes:
+                  - wp-data:/var/www/html
 
 
 volumes:
@@ -21,7 +28,8 @@ volumes:
                 driver: local
                 driver_opts:
                         type: none
-                        device: 
+                        device: /home/ericard/data/wp-data
+                        o: bind 
 
 networks:
         inception_network:
