@@ -12,6 +12,6 @@ RUN mkdir -p /var/www/html/
 ADD config/latest.tar.gz /var/www/html/
 
 COPY config/www.conf /etc/php7/php-fpm.d/www.conf
-#COPY config/wp-config.php /var/www/html/wordpress/wp-config.php
+COPY config/wp-config.php /var/www/html/wordpress/wp-config.php
 
 CMD php-fpm7 -F -R
