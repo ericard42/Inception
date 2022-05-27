@@ -20,7 +20,7 @@ if [ ! -d /var/lib/mysql/wordpress ]; then
 	echo "init_remote -> Done"
 	mysql < /init_wp.sql
 	echo "init_wp -> Done"
-	mysql < /wordpress.sql
+	mysql wordpress < /wordpress.sql
 	echo "wordpress -> Done"
 fi
 
