@@ -2,7 +2,7 @@ version: "3.3"
 services:
         nginx:
                 depends_on:
-                        - php
+                  - php
                 build: ./requirements/nginx
                 image: inception_nginx
                 networks :
@@ -14,6 +14,8 @@ services:
                   - wp-data:/var/www/html
 
         php:
+                depends_on:
+                  - mariadb
                 build: ./requirements/wordpress
                 image: inception_php
                 networks :
@@ -21,6 +23,15 @@ services:
                 restart: always
                 volumes:
                   - wp-data:/var/www/html
+        
+        mariadb:
+                build: ./requirements/mariadb
+                image: inception_mariadb
+                networks :
+                  - inception_network
+                restart: always
+                volumes:
+                  - db:/var/lib/mysql
 
 
 volumes:
@@ -31,7 +42,13 @@ volumes:
                         device: /home/ericard/data/wp-data
                         o: bind 
 
+        db:
+                driver: local
+                driver_opts:
+                        type: none;
+                        device: /home/ericard/data/db
+                        o: bind
+
 networks:
         inception_network:
                  driver: bridge
-        
