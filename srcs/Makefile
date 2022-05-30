@@ -7,6 +7,8 @@ $(NAME): all
 all:	
 	mkdir -p $(HOME_IN)/wp-data
 	mkdir -p $(HOME_IN)/db
+	cp /etc/hosts /etc/hosts.old
+	cp my_hosts /etc/hosts
 	docker-compose build
 	docker-compose up
 
@@ -18,6 +20,7 @@ fclean:	clean
 	docker volume rm $(VOLUMES)
 	rm -rf $(HOME_IN)/wp-data
 	rm -rf $(HOME_IN)/db
+	mv /etc/hosts.old /etc/hosts
 
 re: fclean all
 

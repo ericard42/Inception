@@ -15,6 +15,8 @@ done
 echo "Pong ! Finally !"
 
 if [ ! -d /var/lib/mysql/wordpress ]; then
+	sed -i "s|MDP|$MYSQL_REMOTE_PASSWORD|" /init_remote.sql
+	sed -i "s|MDP|$MYSQL_WP_PASSWORD|" /init_wp.sql
 	echo "db doesn't exist..."
 	mysql < /init_remote.sql
 	echo "init_remote -> Done"

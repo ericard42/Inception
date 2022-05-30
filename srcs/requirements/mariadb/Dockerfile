@@ -14,7 +14,4 @@ COPY tools/init_wp.sql /
 COPY tools/wordpress.sql /
 COPY conf/my.cnf /etc/my.cnf
 
-RUN sed -i "s|MDP|$MYSQL_REMOTE_PASSWORD|" /init_remote.sql
-RUN sed -i "s|MDP|$MYSQL_WP_PASSWORD|" /init_wp.sql
-
 CMD bash /init.sh
