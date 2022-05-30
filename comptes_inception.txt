@@ -1,0 +1,7 @@
+Compte Admin :
+- ericard
+- 12345
+
+Compte User :
+- Norminet
+- Croquette
