@@ -14,4 +14,6 @@ ADD config/latest.tar.gz /var/www/html/
 COPY config/www.conf /etc/php7/php-fpm.d/www.conf
 COPY config/wp-config.php /var/www/html/wordpress/wp-config.php
 
+RUN sed -i "s|MDP_WP|$MYSQL_WP_PASSWORD|" /var/www/html/wordpress/wp-config.php
+
 CMD php-fpm7 -F -R

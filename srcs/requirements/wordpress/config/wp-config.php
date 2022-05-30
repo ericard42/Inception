@@ -26,7 +26,7 @@ define( 'DB_NAME', 'wordpress' );
 define( 'DB_USER', 'wp_user' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'password' );
+define( 'DB_PASSWORD', 'MDP_WP' );
 
 /** Database hostname */
 define( 'DB_HOST', 'mariadb' );

@@ -18,6 +18,8 @@ services:
                   - mariadb
                 build: ./requirements/wordpress
                 image: inception_php
+                env_file:
+                  - .env
                 networks :
                   - inception_network
                 restart: always
@@ -27,6 +29,8 @@ services:
         mariadb:
                 build: ./requirements/mariadb
                 image: inception_mariadb
+                env_file:
+                  - .env
                 networks :
                   - inception_network
                 restart: always
