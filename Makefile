@@ -8,12 +8,12 @@ all:
 	mkdir -p $(HOME_IN)/wp-data
 	mkdir -p $(HOME_IN)/db
 	cp /etc/hosts /etc/hosts.old
-	cp my_hosts /etc/hosts
-	docker-compose build
-	docker-compose up
+	cp srcs/my_hosts /etc/hosts
+	docker-compose -f srcs/docker-compose.yml build
+	docker-compose -f srcs/docker-compose.yml up
 
 clean:
-	docker-compose down
+	docker-compose -f srcs/docker-compose.yml down
 	docker system prune -a
 
 fclean:	clean

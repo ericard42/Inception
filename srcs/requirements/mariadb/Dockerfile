@@ -9,8 +9,8 @@ RUN mkdir -p /run/mysqld
 
 COPY tools/init.sh /init.sh
 
-COPY tools/init_remote.sql /
 COPY tools/init_wp.sql /
+COPY tools/init_root.sql /
 COPY tools/wordpress.sql /
 COPY conf/my.cnf /etc/my.cnf
 
