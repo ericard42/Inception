@@ -16,7 +16,7 @@ echo "Pong ! Finally !"
 
 if [ ! -d /var/lib/mysql/wordpress ]; then
 	sed -i "s|MDP|$MYSQL_WP_PASSWORD|" /init_wp.sql
-	sed -i "s|MDP_ROOT|$MYSQL_ROOT_PASSWORD" /init_root.sql
+	sed -i "s|MDP_ROOT|$MYSQL_ROOT_PASSWORD|" /init_root.sql
 	echo "db doesn't exist..."
 	mysql < /init_wp.sql
 	echo "init_wp -> Done"
